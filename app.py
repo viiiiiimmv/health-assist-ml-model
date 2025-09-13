@@ -1,3 +1,5 @@
+# * youtube video link : https://www.youtube.com/live/KnoVFU0yCUc?si=M8SQ9V-cfEWLZOZs
+
 from flask import Flask, render_template, jsonify, request
 from src.helper import download_hugging_face_embeddings
 from langchain_pinecone import PineconeVectorStore
@@ -30,7 +32,7 @@ docsearch = PineconeVectorStore.from_existing_index(
 
 retriever = docsearch.as_retriever(search_type="similarity", search_kwargs={"k":3})
 
-chatModel = ChatOpenAI(model="gpt-4o")
+chatModel = ChatOpenAI(model="gpt-5-mini")
 prompt = ChatPromptTemplate.from_messages(
     [
         ("system", system_prompt),
